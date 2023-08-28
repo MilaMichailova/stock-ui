@@ -1,12 +1,14 @@
-<form class="card-login-wrapper">
-    <img src="/assets/images/Logo.svg" alt="logo" class="logo-img">
-    <div class="login-block">
-        <label for="user-login-input" class="authorization-label"> Логин </label>
-        <input class="authorization-input" id="user-login-input" maxlength="20" placeholder="Введите логин">
-        <label for="user-password-input" class="authorization-label"> Пароль </label>
-        <input class="authorization-input" id="user-password-input" maxlength="20" placeholder="Введите пароль">
-        <!-- <span class="invalid-authorization">Не верный логин или пароль</span> -->
-    </div>
-    <button class="button-login">Войти <img src="/assets/images/Arrow-left.svg" alt="Arrow" class="button-arrow">
+<img src="/assets/images/Logo.svg" alt="logo" class="logo-img">
+<form [formGroup]="loginForm" (submit)="login()" class="login-form">
+    <label for="user-login-input" class="authorization-label"> Логин </label>
+    <input formControlName="login" class="authorization-input" id="user-login-input" maxlength="20"
+        placeholder="Введите логин">
+    <label for="user-password-input" class="authorization-label"> Пароль </label>
+    <input formControlName="password" class="authorization-input" id="user-password-input" maxlength="20"
+        placeholder="Введите пароль">
+    <!-- <div class="invalid-authorization" *ngIf="isControlInvalid('login')">
+        Не верный логин или пароль
+    </div> -->
+    <button class="button-login" type="submit">Войти <img src="/assets/images/Arrow-left.svg" alt="Arrow" class="arrow">
     </button>
 </form>
