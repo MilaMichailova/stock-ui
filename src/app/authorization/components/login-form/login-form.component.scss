@@ -70,7 +70,6 @@
   }
 
   input.ng-touched.ng-invalid {
-    margin-top: -20px;
     border: 2px solid $invalid-color;
   }
 
@@ -103,6 +102,12 @@
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
+    cursor: pointer;
+
+    &:disabled {
+      background: $default-gray;
+      cursor: default;
+    }
   }
 
   .arrow {

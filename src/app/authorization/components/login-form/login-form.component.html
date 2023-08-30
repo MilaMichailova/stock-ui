@@ -4,11 +4,12 @@
     <input formControlName="login" class="authorization-input" id="user-login-input" maxlength="20"
         placeholder="Введите логин">
     <label for="user-password-input" class="authorization-label"> Пароль </label>
-    <input formControlName="password" class="authorization-input" id="user-password-input" maxlength="20"
-        placeholder="Введите пароль">
-    <!-- <div class="invalid-authorization" *ngIf="isControlInvalid('login')">
+    <input formControlName="password" class="authorization-input" id="user-password-input"
+        (ngModelChange)="clearErrors()" maxlength="20" placeholder="Введите пароль">
+    <div class="invalid-authorization" *ngIf="isFormInvalid">
         Не верный логин или пароль
-    </div> -->
-    <button class="button-login" type="submit">Войти <img src="/assets/images/Arrow-left.svg" alt="Arrow" class="arrow">
+    </div>
+    <button class="button-login" type="submit" [disabled]="!canLogin">Войти <img src="/assets/images/Arrow-left.svg"
+            alt="Arrow" class="arrow">
     </button>
 </form>
