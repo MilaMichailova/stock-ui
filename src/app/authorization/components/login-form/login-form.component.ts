@@ -42,8 +42,8 @@ export class LoginFormComponent {
   }
 
   public goHome() {
-    // this.router.navigate(['/dashboard']);
-    this.router.navigate(['']);
+    this.router.navigate(['/dashboard']);
+    // this.router.navigate(['']);
   }
 
   public login(): void {
