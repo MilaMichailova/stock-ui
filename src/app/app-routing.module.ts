@@ -6,6 +6,7 @@ import { LoginFormComponent } from './authorization/components/login-form/login-
 const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'login', component: LoginFormComponent },
+  // { path: 'dashboard', component: LoginFormComponent },
 ];
 
 @NgModule({
