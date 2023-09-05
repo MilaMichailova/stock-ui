@@ -5,7 +5,7 @@
 
 @import "/src/app/styles/colors.scss";
 
-.card-login-wrapper {
+:host {
   background: rgba(255, 255, 255, 1);
   width: 100%;
   padding: 81px 24px 70px 24px;
@@ -24,10 +24,10 @@
     width: 96px;
     height: 96px;
     flex-shrink: 0;
-    padding: 0 108px 44px 108px;
+    padding: 3px 108px 44px 108px;
   }
 
-  .login-block {
+  .login-form {
     align-items: flex-start;
     margin-bottom: 18px;
   }
@@ -69,8 +69,7 @@
     border: 2px solid $light-violet;
   }
 
-  input:invalid {
-    margin-top: -20px;
+  input.ng-touched.ng-invalid {
     border: 2px solid $invalid-color;
   }
 
@@ -84,7 +83,8 @@
   }
 
   .button-login {
-    margin-top: 12px;
+    margin-top: 28px;
+    margin-bottom: -18px;
     margin-left: 24px;
     width: 264px;
     height: 48px;
@@ -102,8 +102,15 @@
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
+    cursor: pointer;
+
+    &:disabled {
+      background: $default-gray;
+      cursor: default;
+    }
   }
-  .button-arrow {
+
+  .arrow {
     width: 24px;
     padding-left: 24px;
   }

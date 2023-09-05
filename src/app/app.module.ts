@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { Routes, RouterModule } from '@angular/router';
-import { LoginFormComponent } from './authorization/components/login-form/login-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-const appRoutes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'login', component: LoginFormComponent },
-];
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthorizationModule } from './authorization/authorization.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AuthorizationModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
