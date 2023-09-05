@@ -1,0 +1,117 @@
+@font-face {
+  font-family: Inter;
+  src: url(/assets/fonts/Inter-Regular.woff);
+}
+
+@import "/src/app/styles/colors.scss";
+
+:host {
+  background: rgba(255, 255, 255, 1);
+  width: 100%;
+  padding: 81px 24px 70px 24px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 16px;
+  font-weight: 500;
+
+  .logo-img {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    padding: 3px 108px 44px 108px;
+  }
+
+  .login-form {
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .authorization-label {
+    color: $default-black;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .authorization-input {
+    box-sizing: border-box;
+    font-family: inherit;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid $light-gray;
+    background: $default-white;
+  }
+
+  .authorization-input::placeholder {
+    color: default-gray;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .authorization-input:focus {
+    outline: 0;
+    background-color: #fff;
+    border: 2px solid $light-violet;
+  }
+
+  input.ng-touched.ng-invalid {
+    border: 2px solid $invalid-color;
+  }
+
+  .invalid-authorization {
+    color: $invalid-color;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .button-login {
+    margin-top: 28px;
+    margin-bottom: -18px;
+    margin-left: 24px;
+    width: 264px;
+    height: 48px;
+    border: none;
+    border-radius: 48px;
+    background: $default-violet;
+    padding: 12px 16px 12px 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: $default-white;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    cursor: pointer;
+
+    &:disabled {
+      background: $default-gray;
+      cursor: default;
+    }
+  }
+
+  .arrow {
+    width: 24px;
+    padding-left: 24px;
+  }
+}
