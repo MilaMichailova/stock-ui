@@ -1,0 +1,38 @@
+<div class="header">
+    <button class="menu-button">
+        <img src="/assets/images/menu.svg" alt="open menu" class="menu-icon">
+    </button>
+    <h2 class="header-title">Склады</h2>
+</div>
+
+<div *ngIf="isStocksEmpty; then stocksEmpty else stocksNotEmpty"></div>
+<ng-template #stocksEmpty>
+    <div class="empty-page">
+        <p class="empty-list-warning">Вы ещё не добавили ни один склад</p>
+    </div>
+</ng-template>
+
+<ng-template #stocksNotEmpty>
+    <table class="stock-list">
+        <tbody>
+            <tr class="stock-item" *ngFor="let stock of stocks">
+                <td class="cell-name-item">
+                    <div class="name-item">
+                        {{stock.name}}
+                    </div>
+                    <button class="edit-item">
+                        <img src="/assets/images/edit.svg" alt="edit item">
+                    </button>
+                    <button class="remove-item">
+                        <img src="/assets/images/remove.svg" alt="remove item">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+
+
+<button class="add-new-stok-button" (click)="createStock()">
+    <img src="/assets/images/plus-circle.svg" alt="add new stok" class="add-new-stok-icon-не-назначен">
+</button>

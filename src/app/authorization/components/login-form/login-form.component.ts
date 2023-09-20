@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ErrorHandler, afterNextRender } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -6,9 +6,13 @@ import {
   FormArray,
   FormBuilder,
 } from '@angular/forms';
+import { LoginService } from '../../services/login.service';
+import { ILoginInfo } from '../../models/login-info';
+import { catchError, map, of, pipe, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface ILoginForm {
-  login: FormControl<string | null>;
+  userName: FormControl<string | null>;
   password: FormControl<string | null>;
 }
 
@@ -28,23 +32,34 @@ export class LoginFormComponent {
 
   public get canLogin(): boolean {
     return (
-      this.loginForm.controls.login.valid &&
+      this.loginForm.controls.userName.valid &&
       this.loginForm.controls.password.valid
     );
   }
 
-  constructor() {
+  constructor(private loginService: LoginService, private router: Router) {
     this.initLoginForm();
   }
 
-  public login(): void {
-    const loginInfo = this.loginForm.value;
+  public goHome() {
+    this.router.navigate(['/dashboard']);
+    // this.router.navigate(['']);
+  }
 
-    if (loginInfo.login !== 'admin') {
-      this.loginForm.controls.password.reset();
-      this.loginForm.controls.password.markAsTouched();
-      this.hasLoginErrors = true;
-    }
+  public login(): void {
+    this.loginService
+      .login(this.loginForm.value as ILoginInfo)
+      .pipe(
+        tap(() => console.log('Ok')),
+        tap((result) => this.goHome()),
+        catchError((error) => {
+          this.loginForm.controls.password.reset();
+          this.loginForm.controls.password.markAsTouched();
+          this.hasLoginErrors = true;
+          return of();
+        })
+      )
+      .subscribe();
   }
 
   public clearErrors(): void {
@@ -53,7 +68,7 @@ export class LoginFormComponent {
 
   private initLoginForm(): void {
     this.loginForm = new FormGroup<ILoginForm>({
-      login: new FormControl<string>('', [Validators.required]),
+      userName: new FormControl<string>('', [Validators.required]),
       password: new FormControl<string>('', [Validators.required]),
     });
   }
