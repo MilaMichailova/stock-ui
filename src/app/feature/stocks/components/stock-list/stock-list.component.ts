@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IStocksInfo } from 'src/app/feature/models/stocks-info';
-import { GetStocksService } from 'src/app/feature/services/get.stocks.service';
+import { StocksService } from '../../services/stocks.service';
+import { ShortStockInfo } from '../../models/short-stock-info';
 
 @Component({
   selector: 'app-stock-list',
@@ -8,13 +8,13 @@ import { GetStocksService } from 'src/app/feature/services/get.stocks.service';
   styleUrls: ['./stock-list.component.scss'],
 })
 export class StockListComponent implements OnInit {
-  constructor(private stocksService: GetStocksService) {}
-  stock: IStocksInfo;
+  constructor(private stocksService: StocksService) {}
+  stocks: ShortStockInfo[];
 
   ngOnInit(): void {
-    this.stocksService
-      .getStocks()
-      .subscribe({ next: (data: any) => (this.stock = data['name']) });
+    this.stocksService.getStocks().subscribe((result) => {
+      this.stocks = result;
+    });
   }
 
   // я не помню как тут это делать то что выше. блин...

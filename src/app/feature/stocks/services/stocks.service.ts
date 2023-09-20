@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IStocksInfo } from '../models/stocks-info';
+
 import { Observable } from 'rxjs';
+import { ShortStockInfo } from '../models/short-stock-info';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GetStocksService {
+export class StocksService {
   constructor(private http: HttpClient) {}
-  getStocks(stockInfo: IStocksInfo): Observable<Object> {
-    return this.http.get('https://localhost:7119/api/stock');
+
+  getStocks(): Observable<ShortStockInfo[]> {
+    return this.http.get<ShortStockInfo[]>('https://localhost:7119/api/stock');
   }
 }
