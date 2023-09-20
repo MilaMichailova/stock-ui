@@ -9,31 +9,20 @@ import { ShortStockInfo } from '../../models/short-stock-info';
 })
 export class StockListComponent implements OnInit {
   constructor(private stocksService: StocksService) {}
-  stocks: ShortStockInfo[];
+  stocks: ShortStockInfo[] = [];
+
+  public get isStocksEmpty(): boolean {
+    if (this.stocks.length < 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   ngOnInit(): void {
     this.stocksService.getStocks().subscribe((result) => {
       this.stocks = result;
+      this.isStocksEmpty;
     });
   }
-
-  // я не помню как тут это делать то что выше. блин...
-
-  // stocks = [
-  //   {
-  //     name: 'Склад 1',
-  //   },
-  //   {
-  //     name: 'Склад 2',
-  //   },
-  //   {
-  //     name: 'Склад 3',
-  //   },
-  //   {
-  //     name: 'Склад 4',
-  //   },
-  //   {
-  //     name: 'Склад 5',
-  //   },
-  // ];
 }
