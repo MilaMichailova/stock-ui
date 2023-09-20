@@ -9,9 +9,6 @@
 <ng-template #stocksEmpty>
     <div class="empty-page">
         <p class="empty-list-warning">Вы ещё не добавили ни один склад</p>
-        <button class="add-new-stok-button">
-            <img src="/assets/images/plus-circle.svg" alt="add new stok" class="add-new-stok-icon-не-назначен">
-        </button>
     </div>
 </ng-template>
 
@@ -36,6 +33,6 @@
 </ng-template>
 
 
-<button class="add-new-stok-button">
+<button class="add-new-stok-button" (click)="createStock()">
     <img src="/assets/images/plus-circle.svg" alt="add new stok" class="add-new-stok-icon-не-назначен">
 </button>

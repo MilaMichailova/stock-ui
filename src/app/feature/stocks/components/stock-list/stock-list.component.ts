@@ -18,6 +18,9 @@ export class StockListComponent implements OnInit {
       return false;
     }
   }
+  public createStock() {
+    console.log('Создан новый склад для всяхой херни!');
+  }
 
   ngOnInit(): void {
     this.stocksService.getStocks().subscribe((result) => {
