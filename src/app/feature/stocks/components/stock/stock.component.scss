@@ -1,0 +1,97 @@
+@font-face {
+  font-family: Inter;
+  src: url(/assets/fonts/Inter-Regular.woff);
+}
+
+@import "/src/app/styles/colors.scss";
+
+:host {
+  background: $default-white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 16px;
+  font-weight: 500;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.header {
+  background: $dusty-brown;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 24px;
+  margin-bottom: 37px;
+}
+
+.back-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.back-button-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.primary-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: $default-white;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-right: 12px;
+}
+
+.createStockForm {
+  width: 100%;
+  padding-left: 13px;
+  padding-right: 12px;
+}
+
+.create-stock-label {
+  color: $default-black;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.create-stock-input {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid $light-gray;
+  background: $default-white;
+  // margin: 19px 12px 19px 13px;
+}
+
+.create-stock-input:focus {
+  outline: 0;
+  background-color: #fff;
+  border: 2px solid $light-violet;
+}

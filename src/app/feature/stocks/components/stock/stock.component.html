@@ -1,0 +1,12 @@
+<div class="header">
+    <button (click)="backToStocks()" class="back-button">
+        <img src="../../../../../assets/images/arrow-left-litle.svg" alt="back button" class="back-button-icon">
+    </button>
+    <button (click)="saveStock()" class="primary-button">Сохранить</button>
+</div>
+<form [formGroup]="createStockForm" class="createStockForm">
+    <label for="name-stock-input" class="create-stock-label"> Название склада </label>
+    <input formControlName="name" class="create-stock-input" id="name-stock-input" maxlength="70">
+    <label for="addres-stock-input" class="create-stock-label"> Адрес </label>
+    <input formControlName="address" class="create-stock-input" id="addres-stock-input">
+</form>

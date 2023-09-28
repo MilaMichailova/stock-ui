@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StocksService } from '../../services/stocks.service';
 import { ShortStockInfo } from '../../models/short-stock-info';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock-list',
@@ -8,7 +9,7 @@ import { ShortStockInfo } from '../../models/short-stock-info';
   styleUrls: ['./stock-list.component.scss'],
 })
 export class StockListComponent implements OnInit {
-  constructor(private stocksService: StocksService) {}
+  constructor(private stocksService: StocksService, private router: Router) {}
   stocks: ShortStockInfo[] = [];
 
   public get isStocksEmpty(): boolean {
@@ -19,7 +20,8 @@ export class StockListComponent implements OnInit {
     }
   }
   public createStock() {
-    console.log('Создан новый склад для всяхой херни!');
+    this.router.navigateByUrl('stock/create');
+    console.log('Создай новый склад для всяхой херни!');
   }
 
   ngOnInit(): void {
